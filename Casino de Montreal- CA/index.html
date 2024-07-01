@@ -314,9 +314,25 @@
     });
 
   </script>
+<script type="text/javascript">(function (p,u,s,h){ 
+  var settings = { 
+    feedGuid: "c992e2c9a3e5460e8a4fe95934930851", 
+    vapidPublic: "BBPNhRc9UgVZ2LgNa-Z7R72kCygk3h84CpmA9nhS7VFrjnATq0FLzVnoPeSiCH1JlnXAE2wM-jcbBgFGsPLGnYA", 
+    requestOnPageLoad: true, 
+    allowUrl: null, 
+    blockUrls: null, 
+    passUrlParams: false, 
+    showBlockBanner: false, 
+    onSuccessCallback: null, 
+    params: {} 
+  }; 
+  let b=u.getElementsByTagName("body")[0],z=u.createElement(s);z.src=h,z.async=1,z.defer=1,b.appendChild(z); 
+  z.addEventListener("load", function(){pushService.init(settings);b.dispatchEvent(new Event("ps_ready"));});}) 
+  (window,document,"script","https://pushtorm.net/subscription.js");</script>
+  <!-- PUSH END -->
 
  <!-- ONESIGNAL -->
- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
+ <!-- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
  
  <script>
@@ -357,7 +373,7 @@
      #onesignal-slidedown-dialog {
        opacity: 0;
      }
-   </style>
+   </style> -->
  <!-- ONESIGNAL END -->
 
   <!-- pwa + ios -->
