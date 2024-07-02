@@ -4,19 +4,19 @@ const reviews_data = [
   {
     img: "../../media/photos/comments/Samuel_Fry.png",
     name: "Alex Tremblay",
-    comment: "Dragon Link je skvělý! Hrací automaty jsou zábavné a bonusy velkorysé. Hodnocení 5 z 5!",
+"Dragon Link on loistava! Peliautomaatit ovat viihdyttäviä ja bonukset anteliaita. Arvosana 5/5!",
   },
   {
     img: "../../media/photos/comments/comment2.png",
     name: "Noah Gauthier",
     comment:
-      "Jako nadšenec do kasin mohu potvrdit, že Dragon Link skutečně nabízí jeden z nejlepších herních zážitků..",
+      "Kasinoharrastajana voin vahvistaa, että Dragon Link tarjoaa todella yhden parhaista pelikokemuksista.",
   },
   {
     img: "../../media/photos/comments/comment3.png",
     name: "Liam Bouchard",
     comment:
-      "Je skvělé, že máte tak pozitivní zkušenosti s aplikací Casino Montréal! Impozantní rozmanitost her a plynulé hraní jsou skutečně důležité pro kvalitní herní zážitek.",
+      "On hienoa, että teillä on niin positiivisia kokemuksia Casino Montréal -sovelluksesta! Pelien monipuolisuus ja sujuva pelikokemus ovat todella tärkeitä laadukkaan pelikokemuksen kannalta.",
   },
 ];
 
