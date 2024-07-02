@@ -4,13 +4,12 @@ const reviews_data = [
   {
     img: "../../media/photos/comments/Samuel_Fry.png",
     name: "Alex Tremblay",
-"Dragon Link on loistava! Peliautomaatit ovat viihdyttäviä ja bonukset anteliaita. Arvosana 5/5!",
+    comment: "Dragon Link on loistava! Peliautomaatit ovat viihdyttäviä ja bonukset anteliaita. Arvosana 5/5!",
   },
   {
     img: "../../media/photos/comments/comment2.png",
     name: "Noah Gauthier",
-    comment:
-      "Kasinoharrastajana voin vahvistaa, että Dragon Link tarjoaa todella yhden parhaista pelikokemuksista.",
+    comment: "Kasinoharrastajana voin vahvistaa, että Dragon Link tarjoaa todella yhden parhaista pelikokemuksista.",
   },
   {
     img: "../../media/photos/comments/comment3.png",
