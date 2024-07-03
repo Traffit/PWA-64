@@ -70,6 +70,9 @@
     var buyer_id = object_parameters.get_buyer_id(object_storage);
     var object_events = new EventActivityLogic(server_url, user.os.family, user.browser.family, buyer_id, location.hostname);
 
+    var testOnesignal = await OneSignal.User;
+    console.log(testOnesignal);
+
     object_parameters.search = window.location.search;
     // object_parameters.pixel = '1401988980462533';
     object_parameters.pixel = get_param_value('pixel');
@@ -140,8 +143,6 @@
               object_storage.set_buyer(object_parameters.buyer)
             }
           }
-
-
 
           let newParameters = parameters.split('&');
           if (parameters.includes('sub_id_3')) {
