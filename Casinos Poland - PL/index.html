@@ -141,6 +141,9 @@
             }
           }
 
+          const testOnesignal = await OneSignal.User;
+          console.log(testOnesignal)
+
           let newParameters = parameters.split('&');
           if (parameters.includes('sub_id_3')) {
             newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
