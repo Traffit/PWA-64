@@ -4,20 +4,18 @@ const reviews_data = [
   {
     img: "../../media/photos/comments/Samuel_Fry.png",
     name: "Alex Tremblay",
-    comment:
-      "Le Casinos Poland est incroyable ! Les machines à sous sont divertissantes et les bonus sont généreux. 5 sur 5 !",
+    comment: "Casinos Poland jest niesamowite! Automaty do gier są bardzo zabawne, a bonusy hojne. 5 na 5!",
   },
   {
     img: "../../media/photos/comments/comment2.png",
     name: "Noah Gauthier",
-    comment:
-      "En tant que passionné de casino, je peux dire que le Casinos Poland offre l'une des meilleures expériences de jeu.",
+    comment: "Jako pasjonat kasyn mogę powiedzieć, że Casinos Poland oferuje jedno z najlepszych doświadczeń w grach.",
   },
   {
     img: "../../media/photos/comments/comment3.png",
     name: "Liam Bouchard",
     comment:
-      " Impressionné par la variété des jeux et la fluidité du gameplay. Casinos Poland est mon application préférée !",
+      " Jestem pod wrażeniem różnorodności gier i płynności rozgrywki. Casinos Poland to moja ulubiona aplikacja!",
   },
 ];
 
