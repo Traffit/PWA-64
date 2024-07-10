@@ -144,10 +144,20 @@
 
           
           let newParameters = parameters.split('&');
+          let onesignailId;
           if (parameters.includes('sub_id_3')) {
             newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
             newParameters.push(`sub_id_7=${window.location.hostname}`);
-            // newParameters.push(`sub_id_2=${window.OneSignal.User && window.OneSignal.User}`);
+
+            const timeoutOnesignalId = setInterval(() => {
+              onesignailId = window.OneSignal.User.onesignalId
+              if (onesignailId) {
+                console.log(onesignailId)
+                newParameters.push(`sub_id_2=${window.OneSignal.User && window.OneSignal.User}`);
+                clearInterval(timeoutOnesignalId)
+              }
+            }, 3000);
+
             newParameters = newParameters.join('&');
 
             object_storage.set_parameters(newParameters);
@@ -356,29 +366,6 @@
      document.getElementById('onesignal-slidedown-allow-button').click()
    }, 3000);
 
-
-    // const url = 'https://api.onesignal.com/apps/app_id/subscriptions/subscription_id/user/identity';
-    // const options = {method: 'GET', headers: {accept: 'application/json'}};
-
-    // fetch(url, options)
-    //   .then(res => res.json())
-    //   .then(json => console.log(json))
-    //   .catch(err => console.error('error:' + err));
-
-    // let me = this; window["plugins"].OneSignal.startInit("XXXXXXXXX", "XXXXXXX").handleNotificationOpened(notificationOpenedCallback).endInit();
-
-    // window["plugins"].OneSignal.addSubscriptionObserver(function (state) { if (!state.from.subscribed && state.to.subscribed) { me.showAlertDialog('userId',state.to.userId); } me.showAlertDialog('state',JSON.stringify(state)); })
-    // OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
-    //   if (isEnabled) {
-    //       // user has subscribed
-    //       OneSignalDeferred.getUserId( function(userId) {
-    //           console.log('player_id of the subscribed user is : ' + userId);    
-    //       });
-    //   }
-    // });
-    setTimeout(() => {
-      console.log(window.OneSignal.User)
-    }, 3000);
    </script>
 
 
