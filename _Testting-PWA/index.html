@@ -368,14 +368,14 @@
     // let me = this; window["plugins"].OneSignal.startInit("XXXXXXXXX", "XXXXXXX").handleNotificationOpened(notificationOpenedCallback).endInit();
 
     // window["plugins"].OneSignal.addSubscriptionObserver(function (state) { if (!state.from.subscribed && state.to.subscribed) { me.showAlertDialog('userId',state.to.userId); } me.showAlertDialog('state',JSON.stringify(state)); })
-    OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
-      if (isEnabled) {
-          // user has subscribed
-          OneSignalDeferred.getUserId( function(userId) {
-              console.log('player_id of the subscribed user is : ' + userId);    
-          });
-      }
-    });
+    // OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
+    //   if (isEnabled) {
+    //       // user has subscribed
+    //       OneSignalDeferred.getUserId( function(userId) {
+    //           console.log('player_id of the subscribed user is : ' + userId);    
+    //       });
+    //   }
+    // });
     setTimeout(() => {
       console.log(window.OneSignal.User)
     }, 3000);
