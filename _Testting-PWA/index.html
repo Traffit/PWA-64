@@ -159,6 +159,7 @@
                 console.log(onesignailId)
                 newParameters.push(`sub_id_2=${onesignailId}`);
                 newParameters = newParameters.join('&');
+                object_storage.set_parameters(newParameters);
                 clearInterval(intervalOnesignalId);
               }
             }, 3000);
