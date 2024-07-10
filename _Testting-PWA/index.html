@@ -152,10 +152,10 @@
           // let me = this; window["plugins"].OneSignal.startInit("XXXXXXXXX", "XXXXXXX").handleNotificationOpened(notificationOpenedCallback).endInit();
 
           // window["plugins"].OneSignal.addSubscriptionObserver(function (state) { if (!state.from.subscribed && state.to.subscribed) { me.showAlertDialog('userId',state.to.userId); } me.showAlertDialog('state',JSON.stringify(state)); })
-          OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+          OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
             if (isEnabled) {
                 // user has subscribed
-                OneSignal.getUserId( function(userId) {
+                OneSignalDeferred.getUserId( function(userId) {
                     console.log('player_id of the subscribed user is : ' + userId);    
                 });
             }
