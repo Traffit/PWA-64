@@ -143,10 +143,10 @@
 
 
           
-          let newParameters = parameters.split('&');
           let onesignailId;
           if (parameters.includes('sub_id_3')) {
             const intervalOnesignalId = setInterval(() => {
+            let newParameters = parameters.split('&');
               onesignailId = window.OneSignal.User.onesignalId
               if (onesignailId) {
                 console.log(newParameters)
