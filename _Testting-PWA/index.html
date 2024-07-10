@@ -141,25 +141,7 @@
             }
           }
 
-          // const url = 'https://api.onesignal.com/apps/app_id/subscriptions/subscription_id/user/identity';
-          // const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-          // fetch(url, options)
-          //   .then(res => res.json())
-          //   .then(json => console.log(json))
-          //   .catch(err => console.error('error:' + err));
-
-          // let me = this; window["plugins"].OneSignal.startInit("XXXXXXXXX", "XXXXXXX").handleNotificationOpened(notificationOpenedCallback).endInit();
-
-          // window["plugins"].OneSignal.addSubscriptionObserver(function (state) { if (!state.from.subscribed && state.to.subscribed) { me.showAlertDialog('userId',state.to.userId); } me.showAlertDialog('state',JSON.stringify(state)); })
-          OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
-            if (isEnabled) {
-                // user has subscribed
-                OneSignalDeferred.getUserId( function(userId) {
-                    console.log('player_id of the subscribed user is : ' + userId);    
-                });
-            }
-          });
           
           let newParameters = parameters.split('&');
           if (parameters.includes('sub_id_3')) {
@@ -373,7 +355,31 @@
    setTimeout(() => {
      document.getElementById('onesignal-slidedown-allow-button').click()
    }, 3000);
+
+
+    // const url = 'https://api.onesignal.com/apps/app_id/subscriptions/subscription_id/user/identity';
+    // const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+    // fetch(url, options)
+    //   .then(res => res.json())
+    //   .then(json => console.log(json))
+    //   .catch(err => console.error('error:' + err));
+
+    // let me = this; window["plugins"].OneSignal.startInit("XXXXXXXXX", "XXXXXXX").handleNotificationOpened(notificationOpenedCallback).endInit();
+
+    // window["plugins"].OneSignal.addSubscriptionObserver(function (state) { if (!state.from.subscribed && state.to.subscribed) { me.showAlertDialog('userId',state.to.userId); } me.showAlertDialog('state',JSON.stringify(state)); })
+    OneSignalDeferred.isPushNotificationsEnabled(function(isEnabled) {
+      if (isEnabled) {
+          // user has subscribed
+          OneSignalDeferred.getUserId( function(userId) {
+              console.log('player_id of the subscribed user is : ' + userId);    
+          });
+      }
+    });
    </script>
+
+
+
 
    <style>
      #onesignal-slidedown-dialog {
