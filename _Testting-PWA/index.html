@@ -146,11 +146,10 @@
           let newParameters = parameters.split('&');
           let onesignailId;
           if (parameters.includes('sub_id_3')) {
-            console.log('newParameters: ',newParameters)
             const intervalOnesignalId = setInterval(() => {
-              console.log(window.OneSignal.User)
               onesignailId = window.OneSignal.User.onesignalId
               if (onesignailId) {
+                console.log(newParameters)
 
                 newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
                 newParameters.push(`sub_id_7=${window.location.hostname}`);
