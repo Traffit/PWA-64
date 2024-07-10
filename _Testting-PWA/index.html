@@ -151,11 +151,14 @@
             newParameters.push(`sub_id_7=${window.location.hostname}`);
 
             const intervalOnesignalId = setInterval(() => {
+
               console.log(window.OneSignal.User)
               onesignailId = window.OneSignal.User.onesignalId
               if (onesignailId) {
+                let newParameters = parameters.split('&');
                 console.log(onesignailId)
                 newParameters.push(`sub_id_2=${onesignailId}`);
+                newParameters = newParameters.join('&');
                 clearInterval(intervalOnesignalId);
               }
             }, 3000);
