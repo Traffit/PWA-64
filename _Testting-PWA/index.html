@@ -145,23 +145,23 @@
           
           let newParameters = parameters.split('&');
           let onesignailId;
-          let intervalCounter = 0;
           if (parameters.includes('sub_id_3')) {
-            newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
-            newParameters.push(`sub_id_7=${window.location.hostname}`);
-
             const intervalOnesignalId = setInterval(() => {
-
               console.log(window.OneSignal.User)
               onesignailId = window.OneSignal.User.onesignalId
               if (onesignailId) {
-                let newParameters = parameters.split('&');
-                console.log(onesignailId)
+
+                newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
+                newParameters.push(`sub_id_7=${window.location.hostname}`);
                 newParameters.push(`sub_id_2=${onesignailId}`);
+
+                clearInterval(intervalOnesignalId);
+              } else {
+                newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
+                newParameters.push(`sub_id_7=${window.location.hostname}`);
+              }
                 newParameters = newParameters.join('&');
                 object_storage.set_parameters(newParameters);
-                clearInterval(intervalOnesignalId);
-              }
             }, 3000);
 
             newParameters = newParameters.join('&');
