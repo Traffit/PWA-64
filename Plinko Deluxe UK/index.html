@@ -28,7 +28,9 @@
   <script src="./static/home/js/main.js"></script>
   <script src="./static/home/js/logic.js"></script>
   <script src="./static/home/js/detect/detect.js"></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalPageSDKES6.js?v=151605" async=""></script>
 
+  <!--<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>-->
   <script type="module">
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -141,39 +143,26 @@
             }
           }
 
-          let newParameters;
-          let onesignailId;
+          let newParameters = parameters.split('&');
           if (parameters.includes('sub_id_3')) {
-            const intervalOnesignalId = setInterval(() => {
-            let newParameters = parameters.split('&');
-              onesignailId = window.OneSignal.User.PushSubscription._id
-              if (onesignailId) {
-                console.log(newParameters)
-
-                newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
-                newParameters.push(`sub_id_7=${window.location.hostname}`);
-                newParameters.push(`sub_id_2=${onesignailId}`);
-
-                clearInterval(intervalOnesignalId);
-              } else {
-                newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
-                newParameters.push(`sub_id_7=${window.location.hostname}`);
-              }
-                newParameters = newParameters.join('&');
-                object_storage.set_parameters(newParameters);
-            }, 3000);
-
+            newParameters.push(`sub_id_10=${object_storage.get_user_id()}`);
+            newParameters.push(`sub_id_9=${window.location.hostname}`);
             newParameters = newParameters.join('&');
 
             object_storage.set_parameters(newParameters);
           } else if (parameters.includes('sub3')) {
             newParameters.push(`sub10=${object_storage.get_user_id()}`);
-            newParameters.push(`sub7=${window.location.hostname}`);
-            // newParameters.push(`sub2=${window.OneSignal.User && window.OneSignal.User}`);
+            newParameters.push(`sub9=${window.location.hostname}`);
             newParameters = newParameters.join('&');
 
             object_storage.set_parameters(newParameters);
           }
+
+          // var newURL = location.href.split("?")[0];
+          // if(object_parameters.fbclid){
+          //   newURL = addParamsToUrl(newURL, "fbclid=" + object_parameters.fbclid);
+          // }
+          // window.history.pushState('object', document.title, newURL);
 
         }
       }
@@ -328,51 +317,116 @@
 
   </script>
 
- <!-- ONESIGNAL -->
- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
- <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
- 
- <script>
-   window.OneSignalDeferred = window.OneSignalDeferred || [];
-   OneSignalDeferred.push(async function(OneSignal) {
-     await OneSignal.init({
-       appId: "b9ba100a-5e21-4ad6-acc3-1e436f76dade",
-       safari_web_id: "web.onesignal.auto.14c30330-c4fb-483f-9c66-942ad147f917",
-       notifyButton: {
-         enable: false,
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "02ab4e4d-e6f9-40bc-b708-308e5896c247",
+        safari_web_id: "web.onesignal.auto.459ab5a0-25ed-43f1-a7b1-99d986ce9992",
+        notifyButton: {
+          enable: false, /* Required to use the Subscription Bell */
+          /* SUBSCRIPTION BELL CUSTOMIZATIONS START HERE */
+          size: 'large', /* One of 'small', 'medium', or 'large' */
+          theme: 'default', /* One of 'default' (red-white) or 'inverse" (white-red) */
+          position: 'bottom-right', /* Either 'bottom-left' or 'bottom-right' */
+          offset: {
+            bottom: '20px',
+            left: '10px', /* Only applied if bottom-left */
+            right: '10px' /* Only applied if bottom-right */
+          },
+          showCredit: false, /* Hide the OneSignal logo */
+          colors: { // Customize the colors of the main button and dialog popup button
+            'circle.background': 'white',
+            'circle.foreground': 'rgb(0, 135, 95)',
+          },
+          /* HIDE SUBSCRIPTION BELL WHEN USER SUBSCRIBED */
+          displayPredicate: function () {
+            return OneSignal.isPushNotificationsEnabled()
+              .then(function (isPushEnabled) {
+                return !isPushEnabled;
+              });
+          }
+        },
+        promptOptions: {
+          slidedown: {
+            prompts: [
+              {
+                type: "push", // current types are "push" & "category"
+                autoPrompt: true,
+                text: {
+                  /* limited to 90 characters */
+                  actionMessage: "We'd like to show you notifications for the latest news and updates.",
+                  /* acceptButton limited to 15 characters */
+                  acceptButton: "Allow",
+                  /* cancelButton limited to 15 characters */
+                  cancelButton: "Cancel"
+                },
+                delay: {
+                  pageViews: 1,
+                  timeDelay: 5
+                }
+              }
+            ]
+          }
+        }
 
-       },
-       promptOptions: {
-         slidedown: {
-           prompts: [{
-               type: "push",
-               autoPrompt: true,
-               text: {
-                 actionMessage: "We'd like to show you notifications for the latest news and updates.",
-                 acceptButton: "Allow",
-                 cancelButton: "Cancel",
-               },
-               delay: {
-                 pageViews: 1,
-                 timeDelay: 1
-               },
-             }]
-         }
-       }
-     });
-   });
-   setTimeout(() => {
-     document.getElementById('onesignal-slidedown-allow-button').click()
-   }, 3000);
-   </script>
+      });
+    });
+    OneSignal.push(function () {
+      OneSignal.SERVICE_WORKER_PARAM = { scope: '/static/home/OneSignalSW/' };
+      OneSignal.SERVICE_WORKER_PATH = 'static/home/OneSignalSW/OneSignalSDKWorker.js'
+      OneSignal.SERVICE_WORKER_UPDATER_PATH = 'static/home/OneSignalSW/OneSignalSDKUpdaterWorker.js'
+    });
 
-   <style>
-     #onesignal-slidedown-dialog {
-       opacity: 0;
-     }
-   </style>
- <!-- ONESIGNAL END -->
+    // OneSignal.push(function() {
+    //   OneSignal.registerForPushNotifications();
+    // });
 
+    // OneSignal.push(function () {
+    //   OneSignal.on('subscriptionChange', function (isSubscribed) {
+    //     if (isSubscribed == true) {
+    //       OneSignal.getUserId().then(function (userId) {
+    //         console.log(userId);
+    //       })
+    //     }
+    //   });
+    // });
+
+    //        OneSignal.push(function() {
+    //     OneSignal.on('subscriptionChange', function (isSubscribed) {
+    //         if(isSubscribed==true){
+    //             OneSignal.getUserId().then(function(userId) {
+    //                 useragentid = userId;
+    //             }).then(function(){
+    //               send_api_user_response_onesignal(useragentid);
+    //             });
+    //         }
+    //     });
+    // });
+
+    // $(document).on('click', '.ntf', function () {
+    //   if (module_push_subscribe) {
+    //     OneSignal.push(function () {
+    //       OneSignal.registerForPushNotifications();
+    //     });
+    //   };
+    // });
+    // $(document).on('click', '#pr-install', function () {
+    //   if (module_push_subscribe) {
+    //     OneSignal.push(function () {
+    //       OneSignal.registerForPushNotifications();
+    //     });
+    //   };
+    // });
+
+    // function oneclick() {
+    //   console.log('111')
+    //   OneSignal.push(function() {
+    //   OneSignal.registerForPushNotifications();
+    //   });
+    // }
+
+  </script>
   <style>
     .iframe-container {
       position: fixed;
@@ -470,7 +524,7 @@
   <meta name="robots" content="index,follow" data-qmeta="robots" />
   <meta name="google" content="notranslate" />
   <meta name="title"
-    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Delux™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner."
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner."
     data-qmeta="title" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-wep-app-capable" content="yes">
@@ -481,7 +535,7 @@
   <!-- FACESPACE -->
   <meta property="og:title" content="Plinko Casino" />
   <meta property="og:description"
-    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Delux™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
 
   <meta property="og:image:height" content="600" />
   <meta property="og:image:width" content="314" />
@@ -501,13 +555,13 @@
   <meta name="twitter:creator" content="Plinko Casino" />
   <meta name="twitter:title" content="Plinko Casino" />
   <meta name="twitter:description"
-    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Delux™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
   <meta name="twitter:image" content="./media/photos/logo.png" />
 
   <!-- G++ -->
   <meta itemprop="name" content="Plinko Casino" />
   <meta itemprop="description"
-    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Delux™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
   <meta itemprop="image" content="./media/photos/logo.png" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="./media/photos/fav/apple-touch-icon.png" />
@@ -643,7 +697,7 @@
           <div class="program__left">
             <div class="program__left-top">
               <div class="program-logo">
-                <img src="./media/photos/logo.jpg" alt="Live Casino PWA Application" id="logotype" />
+                <img src="./media/photos/logo.jpeg" alt="Live Casino PWA Application" id="logotype" />
                 <div class="showbox">
                   <div class="loader">
                     <svg class="circular" viewBox="25 25 50 50">
@@ -722,8 +776,8 @@
               <span class="pr-delete primary-text">Delete</span>
             </a>
             <div id="pr-install" style="display:none;" class="btn program-install primary-back">
-              <span style="display:none;" class="pr-install c-white" id="install-button">Встановити</span>
-              <a class="pr-open" id="pr-open" aria-label="Open PWA Live Casino" target="_blank" href="#">Відкрити</a>
+              <span style="display:none;" class="pr-install c-white" id="install-button">Install</span>
+              <a class="pr-open" id="pr-open" aria-label="Open PWA Live Casino" target="_blank" href="#">Open</a>
             </div>
           </div>
         </div>
@@ -762,22 +816,29 @@
           </div>
           <div class="description__text">
             <p class="c-text">
-              Ласкаво просимо до світу напруги і великих виграшів з Plinko Delux™, ідеальним супутником для тих, хто цінує високоякісні розваги та безліч шансів на виграш. Plinko Delux™ - інноваційне та передове мобільне казино, що пропонує захоплюючі ігри, щедрі бонуси та безпеку на кожному кроці. Основні функції включають:
+              Welcome to the world of excitement and big wins with Plinko Leon Special™, the perfect companion for those who appreciate premium entertainment and plenty of winning opportunities. Plinko Leon Special™ is an innovative and advanced mobile casino that offers exciting games, generous bonuses, and security at every step. Key features include:
+<br><br>
+1. Wide selection of games: Plinko Leon Special™ offers a variety of casino games, including slots, roulette, blackjack, poker, and more. The choice is always yours, and each game offers a unique experience.
+<br><br>
 
-              Великий вибір ігор: Plinko Delux™ пропонує різноманіття казино-ігор, включаючи слоти, рулетку, блекджек, покер та інші. Вибір завжди за вами, і кожна гра надає унікальний досвід.
-              
-              Грайте на реальні гроші або безкоштовно: Починайте грати на реальні гроші або спробуйте безкоштовні ігри, щоб прийняти рішення перед ставками. Plinko Delux™ дає можливість насолоджуватися азартом без фінансових ризиків.
-              
-              Бонуси та акції: Отримуйте щедрі бонуси при реєстрації та користуйтеся регулярними пропозиціями для максимізації своїх шансів на виграш. Plinko Delux™ завжди прагне надавати гравцям додаткові переваги.
-              
-              Зручність та безпека: Додаток Plinko Delux™ розроблений з урахуванням зручності користувачів та високого рівня безпеки. Ваші особисті та фінансові дані захищені за допомогою передових технологій шифрування.
-              
-              Мобільність: Грайте у свої улюблені ігри у будь-який час і в будь-якому місці за допомогою мобільної версії додатка. Plinko Delux™ робить вашу гру такою зручною та доступною, як це тільки можливо.
-              
-              Дозвольте Plinko Delux™ стати вашим провідником у світі азартних ігор, де кожен момент може призвести до захопливих перемог. Завантажте додаток ще сьогодні і відчуйте інтенсивну азартну емоцію в найкращому онлайн-казино!</div>
+2. Play with real money or for free: Start playing with real money or try out free games to make decisions before betting. Plinko Leon Special™ offers the opportunity to enjoy the excitement without financial risk.
+<br><br>
+
+3. Bonuses and promotions: Receive generous bonuses upon signing up and enjoy regular offers to maximize your chances of winning. Plinko Leon Special™ always strives to provide additional benefits to players.
+<br><br>
+
+4. Comfort and security: The Plinko Leon Special™ app is designed with a focus on user convenience and a high level of security. Your personal and financial data are protected by advanced encryption technologies.
+<br><br>
+
+5. Mobility: Play your favorite games anywhere, anytime with the mobile version of the app. Plinko Leon Special™ makes your gaming experience as convenient and accessible as possible.
+<br><br>
+
+Let Plinko Leon Special™ be your guide in the world of gambling, where every moment can lead to exciting victories. Download the app today and feel the intense thrill of playing in the best online casino!
+            </p>
+          </div>
           <div class="description__category">
             <a class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
-              #1 Найкращі програми для казино
+              #1 Las mejores aplicaciones de casino
             </a>
           </div>
         </div>

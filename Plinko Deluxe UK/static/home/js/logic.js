@@ -291,56 +291,67 @@ var FacebookLogic = class {
   }
     
   save_user() {
-      let visitor = localStorage.getItem('visitor')
+    let visitor = localStorage.getItem('visitor')
 
-      var url_x = "https://" + window.location.hostname
-      // window.history.pushState('object', document.title, url_x);
+    var url_x = "https://" + window.location.hostname
+    // window.history.pushState('object', document.title, url_x);
 
-      if (true) {
-          let useragent = navigator.userAgent
-          let referrer = document.referrer
-          let language = navigator.language
-          let cookie = document.cookie
-          let timestamp = Date.now()
-          let external_id = object_storage.get_user_id()
+    if (!visitor) {
+      let ip;
+      const fbclid = this.fbclid;
+      const pixel = this.pixel;
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data.ip);
+          ip = data.ip;
 
-          var url = 'https://f3utils.com/api/v1/save-user/'
+          sendDataToFacebook(ip, fbclid, pixel);
+        })
+        .catch(error => {
+          console.log('Error:', error);
+        });
 
-          var data = {
-              fbclid: this.fbclid,
-              fbp: this.pixel,
-              useragent: useragent,
-              referrer: referrer,
-              language: language,
-              timestamp: timestamp,
-              external_id: external_id,
-              cookie: cookie,
-              host: "https://" + window.location.hostname
-          }
-          // setTimeout(() => {
-          //   console.log(data)
-          //   var logs=`<div class="logs">
-          //     ${JSON.stringify(data)}
-          //     ${document.cookie}
-          //     ${window.location.search}
-          //   </div>`;
-            
-          //   document.getElementsByTagName('body')[0].innerHTML += logs;
-          // }, 1000);
+      function sendDataToFacebook(ip, fbclid, pixel) {
+        let useragent = navigator.userAgent;
+        let referrer = document.referrer;
+        let language = navigator.language;
+        let cookie = document.cookie;
+        let timestamp = Date.now();
+        let user_id = object_storage.get_user_id();
 
+        var url = 'https://api-pwa-v1.vercel.app/create';
 
-          // fetch(url, {
-          //     mode: 'no-cors',
-          //     credentials: 'include',
-          //     method: 'POST',
-          //     headers: {
-          //         'Content-Type': 'application/json'
-          //     },
-          //     body: JSON.stringify(data)
-          // })
+        var data = {
+          fbclid: fbclid,
+          pixel: pixel,
+          ua: useragent,
+          ip: ip,
+          referrer: referrer,
+          lang: language,
+          timestamp: timestamp,
+          user_id: user_id,
+          cookie: cookie,
+          source: "https://" + window.location.hostname
+        };
 
-          // localStorage.setItem('visitor', true);
+        console.log(data);
+
+        fetch(url, {
+          mode: 'cors',
+          credentials: 'omit',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).then((res) => {
+          console.log(res);
+        });
       }
+
+      localStorage.setItem('visitor', true);
+    }
   }
 }
 
