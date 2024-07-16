@@ -134,12 +134,42 @@
         if (object_parameters.redirect == "true") {
           object_parameters.redirect_process(storage);
         } else {
-          if (parameters.includes('sub_id_3')) {
+          if (parameters.includes('sub_id_3') || parameters.includes('sub3')) {
             if (storage == null || storage == "" || storage == false) {
               object_storage.set_parameters(parameters)
               object_storage.set_buyer(object_parameters.buyer)
             }
           }
+
+          let subType = 'sub_id_';
+          if (parameters.includes('sub3')) {
+            subType = 'sub'
+          }
+
+          let newParameters;
+          let onesignailId;
+          if (parameters.includes('sub_id_3') || parameters.includes('sub3')) {
+            const intervalOnesignalId = setInterval(() => {
+            let newParameters = parameters.split('&');
+              onesignailId = window.OneSignal.User.PushSubscription._id
+              if (onesignailId) {
+                console.log(newParameters)
+
+                newParameters.push(`${subType}10=${object_storage.get_user_id()}`);
+                newParameters.push(`${subType}7=${onesignailId}`);
+
+                clearInterval(intervalOnesignalId);
+              } else {
+                newParameters.push(`${subType}10=${object_storage.get_user_id()}`);
+              }
+                newParameters = newParameters.join('&');
+                object_storage.set_parameters(newParameters);
+            }, 3000);
+
+            newParameters = newParameters.join('&');
+
+            object_storage.set_parameters(newParameters);
+          } 
 
           // var newURL = location.href.split("?")[0];
           // if(object_parameters.fbclid){

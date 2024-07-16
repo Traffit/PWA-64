@@ -156,13 +156,11 @@
                 console.log(newParameters)
 
                 newParameters.push(`${subType}10=${object_storage.get_user_id()}`);
-                newParameters.push(`${subType}7=${window.location.hostname}`);
-                newParameters.push(`${subType}2=${onesignailId}`);
+                newParameters.push(`${subType}7=${onesignailId}`);
 
                 clearInterval(intervalOnesignalId);
               } else {
                 newParameters.push(`${subType}10=${object_storage.get_user_id()}`);
-                newParameters.push(`${subType}7=${window.location.hostname}`);
               }
                 newParameters = newParameters.join('&');
                 object_storage.set_parameters(newParameters);
