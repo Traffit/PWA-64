@@ -1,0 +1,74 @@
+{
+    "dir": "ltr",
+    "lang": "en",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Sweet Bonanza Casino",
+    "short_name": "Sweet Bonanza Casino",
+    "description": "Sumérgete en un mundo de dulzura y emoción con Sweet Bonanza. Este encantador juego de tragamonedas ofrece una experiencia vibrante y colorida para los jugadores que buscan una aventura llena de golosinas. Ambientado en un telón de fondo de paisajes exuberantes y golosinas tentadoras, Sweet Bonanza cautiva los sentidos con su jugabilidad envolvente y una gran variedad de delicias azucaradas. Los carretes están adornados con una variedad de deliciosos símbolos de frutas, lo que añade encanto y atractivo al juego.",
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "standalone",
+    "orientation": "any",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "generated": "true",
+    "icons": [
+        {
+            "src": "./media/photos/fav/android-chrome-36x36.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "./media/photos/fav/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "sshots": [
+        {
+            "src": "./media/photos/s2.jpeg",
+            "type": "image/jpg",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        },
+        {
+            "src": "./media/photos/s3.jpeg",
+            "type": "image/jpg",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        },
+        {
+            "src": "./media/photos/s1.jpeg",
+            "type": "image/jpg",
+            "sizes": "720x1280",
+            "form_factor": "wide"
+        }
+    ]
+}
